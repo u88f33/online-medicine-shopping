@@ -1,17 +1,23 @@
 // Importing required packages
-import express from "express";          // Express framework for handling routes and server
-import dotenv from "dotenv";            // dotenv for loading environment variables
-import connectDB from "./src/config/database.js"; // Function to connect to MongoDB
-import Admin from "./src/models/Admin.js";
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./src/config/database.js";
+import hompePageRoute from "./src/routes/home_page.route.js";
 
 // Load environment variables from .env file
 dotenv.config();
+// Connected to MongoDB
+connectDB();
 
 // Initialize Express app
 const app = express();
+app.set( "view engine", "ejs" );
+app.set( "views", "./src/views" );
 
-// Connected to MongoDB
-connectDB();
+app.use( express.urlencoded( { extended: false } ) );
+app.use( express.json() );
+app.use( "/", hompePageRoute );
+
 
 
 // Define the port to listen on (from environment variables)
