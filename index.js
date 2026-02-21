@@ -10,7 +10,7 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 
-// Connect to MongoDB
+// Connected to MongoDB
 connectDB();
 
 
