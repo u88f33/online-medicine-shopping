@@ -1,11 +1,7 @@
 import express from "express"
-
+import homePageController from "../controllers/home_page.controller.js";
 const router = express.Router();
 
-router.get( "/", (req, res, next) => {
-    res.render(
-        "home/homepage"
-    );
-} );
+router.get( "/", homePageController);
 
 export default router;

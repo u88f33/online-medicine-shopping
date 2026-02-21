@@ -2,7 +2,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./src/config/database.js";
-import hompePageRoute from "./src/routes/home_page.route.js";
+import hompPageRoute from "./src/routes/home_page.route.js";
+import loginPageRoute from "./src/routes/login.route.js";
+import registerPageController from "./src/controllers/register.controller.js";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -17,7 +19,11 @@ app.set( "views", "./src/views" );
 app.use( express.static( "public/" ) )
 app.use( express.urlencoded( { extended: false } ) );
 app.use( express.json() );
-app.use( "/", hompePageRoute );
+
+
+app.use( "/", hompPageRoute );
+app.use( "/login", loginPageRoute );
+app.use( "/register", registerPageController );
 
 
 
