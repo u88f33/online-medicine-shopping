@@ -1,3 +1,11 @@
+* {
+    box-sizing: border-box !important;
+}
+
+body {
+    overflow-x: hidden;
+}
+
 .btn:hover {
     background-color: hsla(0, 0%, 100%, 0.232) !important;
 }
@@ -14,10 +22,11 @@ a.sidebar-logout-hover:hover {
     background-color: rgba(220, 53, 70, 0.502) !important;
     color: white !important;
 }
-.width-250px {
-    width: 250px;
+
+.width-20-percent {
+    width: 20%;
 }
 
-.admin-right-content {
-    margin-left: 260px !important;
+.admin-container {
+    margin-left: 20% !important;
 }

@@ -70,7 +70,7 @@ whether an admin is logged in or not using cookies
 // import adminMainPageRoute from "./src/routes/admin.route.js"
 app.use( "/admin", ensureAdminLoggedIn, adminMainPageRoute );
 
-// If non-existing route is accessed by a user
+// If non-existing route is accessed by a user 
 app.use( ( req, res, next ) => {
     res
     .status( 404 )
