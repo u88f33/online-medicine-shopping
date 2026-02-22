@@ -2,7 +2,7 @@ const adminLoginGetController = ( req, res, next ) => {
     try {
 
         res.render(
-            "auth/adminlogin"
+            "auth/adminlogin", { wrongCredentials: "" }
         )
 
     } catch ( error ) {
