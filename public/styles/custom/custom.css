@@ -5,3 +5,19 @@
 .underline-hover:hover {
     text-decoration: underline !important;
 }
+
+a.sidebar-link-hover:hover {
+    background-color: rgba(255, 255, 255, 0.251) !important;
+}
+
+a.sidebar-logout-hover:hover {
+    background-color: rgba(220, 53, 70, 0.502) !important;
+    color: white !important;
+}
+.width-250px {
+    width: 250px;
+}
+
+.admin-right-content {
+    margin-left: 260px !important;
+}
