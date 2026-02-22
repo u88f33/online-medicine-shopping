@@ -21,7 +21,8 @@
                             class="form-control" 
                             id="exampleInputEmail1" 
                             aria-describedby="emailHelp"
-                            name="admin_email">
+                            name="admin_email"
+                            autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">
@@ -34,10 +35,6 @@
                             name="admin_password"
                             autocomplete="off">
                     </div>
-
-                    <div class="mb-3 forgot-password">
-                        <a href="#forgot-password" class="text-light text-decoration-none underline-hover">Forgot Password</a>
-                    </div>
                     
                     <div class="d-flex justify-content-right">
                         <button type="submit" class="btn border-light text-light px-3 ms-auto">Login as Admin</button>
@@ -45,7 +42,17 @@
 
                 </form>
 
+                <%#-- If Email or Password does not matched, show message in box --%>
+                <% if ( wrongCredentials ) { %>
+                    <div class="alert alert-danger d-flex align-items-center mt-4" role="alert">
+                        <div>
+                            <strong>Login Failed:</strong> <%= wrongCredentials %>
+                        </div>
+                    </div>
+                <% } %>
             </div>
+
+
 
         </div>
     </div>

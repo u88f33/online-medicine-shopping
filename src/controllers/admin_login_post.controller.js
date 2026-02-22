@@ -17,7 +17,7 @@ const adminLoginPostController = async ( req, res, next ) => {
         // In case of wrong email, store message in "wrongCredentials" variable
         let wrongCredentials = "";
 
-        // Chech if Email is found in the database, If not return false
+        // Chech if Email is found in the database, If not then store false in "isEmailMatched"
         let isEmailMatched = ( admin_email == email )? true : false;
 
         // If Email is not found in the database then return Message "Invalid email"
@@ -32,19 +32,25 @@ const adminLoginPostController = async ( req, res, next ) => {
         // If Password is not matched, return this message "Invalid Password"
         if ( !isPasswordMatched ) {
             wrongCredentials = "Admin Password is Incorrect";
-            return res.render( "auth/adminlogin", { wrongCredentials } )
+            return res.render( "auth/adminlogin", { wrongCredentials } );
         }
 
-        res.send(
-            `
-                <h1>${ name }</h1>
-                <h1>${ email }</h1>
-                <h1>${ password }</h1>
-                <h1>${ admin_email }</h1>
-                <h1>${ admin_password }</h1>
-            `
-        )
+        /**
+             * Set cookie after successful login
+             * 
+             * Key: "adminEmail" - name of the cookie
+             * Value: admin_email - store admin's email in the cookie
+             * httpOnly: true - prevents client-side JavaScript from reading the cookie
+             * maxAge: 1 hour (1000ms * 60s * 60min)
+             * This cookie can now be accessed in any middleware or route using req.cookies.adminEmail
+         */
+        res.cookie( "adminEmail", admin_email, {
+            httpOnly: true,
+            maxAge: 1000 * 60 * 60 
+        } );
 
+        // If Both Email and Password of Admin are matched, then render "adminpage.ejs"
+        res.redirect( "/admin" );
 
     } catch ( error ) {
         console.log( `Error: ${ error.message }` );
