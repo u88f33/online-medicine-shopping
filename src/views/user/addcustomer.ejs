@@ -5,10 +5,13 @@
     <div class="row p-5 pb-3">
         <div class="col-12 d-flex justify-content-center">
 
-        <form class="bg-dark text-light rounded rounded-4 p-4 w-100">
+        <form 
+            action="/admin/addcustomer"
+            method="POST"
+            class="bg-dark text-light rounded rounded-4 p-4 w-100">
 
             <div class="text-light pt-5 pb-5">
-                <h1 class="fs-2">Add new Customer Record</h1>
+                <h1 class="fs-2">Add New Customer Record</h1>
             </div>
 
             <div class="d-flex">
@@ -18,6 +21,7 @@
                         class="form-control" 
                         id="exampleInputName" 
                         aria-describedby="nameHelp"
+                        placeholder="Write your name"
                         min="2"
                         max="50"
                         name="customer_name">
@@ -27,6 +31,7 @@
                     <label for="exampleInputEmail" class="form-label">Email</label>
                     <input type="email" 
                         class="form-control" 
+                        placeholder="Write your Email"
                         id="exampleInputEmail" 
                         aria-describedby="emailHelp"
                         name="customer_email">
@@ -38,7 +43,8 @@
                 <div class="mb-3 me-4 w-50">
                     <label for="exampleInputPhone" class="form-label">Phone</label>
                     <input type="text" 
-                        class="form-control" 
+                        class="form-control"
+                        placeholder="Enter your Phone number"
                         id="exampleInputPhone" 
                         aria-describedby="phoneHelp"
                         name="customer_phone">
@@ -46,19 +52,25 @@
 
                 <div class="mb-3 w-50">
                     <label for="exampleInputPassword" class="form-label">Password</label>
-                    <input type="text" 
+                    <input type="password"
                         class="form-control" 
-                        id="exampleInputPassword" 
-                        aria-describedby="passwordHelp">
+                        id="exampleInputPassword"
+                        placeholder="Type Password"
+                        aria-describedby="passwordHelp"
+                        name="customer_password">
                 </div>
             </div>
 
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputAddress" class="form-label">Address</label>
+                <input type="text" 
+                    class="form-control"
+                    placeholder="Enter your Address"
+                    id="exampleInputAddress"
+                    name="customer_address">
             </div>
 
-            <div class="d-flex">
+            <div class="d-flex mt-5">
                 <a href="/admin/customers" class="btn btn-warning ms-auto me-2">Go Back</a>
                 <button type="submit" class="btn btn-danger bg-danger">Submit</button>
             </div>
