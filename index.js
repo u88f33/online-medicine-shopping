@@ -21,6 +21,7 @@ import adminMainPageRoute from "./src/routes/admin.route.js";
 import manageCustomersRoute from "./src/routes/manage_customers.route.js";
 import manageMedicinesRoute from "./src/routes/manage_medicines.route.js";
 import manageSuppliersRoute from "./src/routes/manage_suppliers.route.js";
+import addCustomerRoute from "./src/routes/add_customer.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -60,27 +61,25 @@ app.use( "/login", loginPageRoute );
 // import registerPageRoute from "./src/routes/register.route.js";
 app.use( "/register", registerPageRoute );
 
+
+/** 
+ * 
+ * Admin Routes
+ * 
+*/
 // import adminLoginRoute from "./src/routes/admin_login.route.js"
 app.use( "/adminlogin", adminLoginRoute);
 
-// import adminLogoutRoute from "./src/routes/admin_logout.route.js"
 app.use( "/adminlogout", adminLogoutRoute );
-
-/* 
-"ensureAdminLoggedIn" is a middleware, which ensures that
-whether an admin is logged in or not using cookies
-*/
-// import adminMainPageRoute from "./src/routes/admin.route.js"
 app.use( "/admin", ensureAdminLoggedIn, adminMainPageRoute );
-
 // import manageCustomersRoute from "./src/routes/manage_customers.route.js";
 app.use( "/admin/customers", ensureAdminLoggedIn, manageCustomersRoute );
-
 // import manageMedicinesRoute from "./src/routes/manage_medicines.route.js";
 app.use( "/admin/medicines", ensureAdminLoggedIn, manageMedicinesRoute );
-
 // import manageMedicinesRoute from "./src/routes/manage_suppliers.route.js";
 app.use( "/admin/suppliers", ensureAdminLoggedIn, manageSuppliersRoute );
+// import addCustomerRoute from "./src/routes/add_customer.route.js"
+app.use( "/admin/addcustomer", ensureAdminLoggedIn, addCustomerRoute );
 
 
 // If non-existing route is accessed by a user 
