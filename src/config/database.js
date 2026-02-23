@@ -24,6 +24,9 @@ dotenv.config();
 const connectDB = async () => {
   try {
     // Attempt to connect to MongoDB
+    let MONGO_URI = process.env.MONGO_URI || 
+    "mongodb://127.0.0.1:27017/online_medicine_shopping";
+
     const conn = await mongoose.connect(process.env.MONGO_URI);
 
     console.log(`MongoDB Connected Successfully`);

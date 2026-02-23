@@ -6,7 +6,7 @@ body {
     overflow-x: hidden;
 }
 
-.btn:hover {
+.btn-hover:hover {
     background-color: hsla(0, 0%, 100%, 0.232) !important;
 }
 
@@ -29,4 +29,34 @@ a.sidebar-logout-hover:hover {
 
 .admin-container {
     margin-left: 20% !important;
+}
+
+
+
+
+/* Tabs styling for Admin Panel */
+.tabs {
+    display: flex;
+    cursor: pointer;
+}
+
+.tab {
+    padding: 10px 20px;
+    margin-right: 5px;
+    color: white;
+}
+
+.tab.active {
+    background: #dc3545 !important;
+    color: white;
+}
+
+.tab-content {
+    padding: 20px;
+    margin-top: 5px;
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
 }

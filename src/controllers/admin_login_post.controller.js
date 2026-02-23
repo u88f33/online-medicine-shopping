@@ -18,6 +18,7 @@ const adminLoginPostController = async ( req, res, next ) => {
         let wrongCredentials = "";
 
         // Chech if Email is found in the database, If not then store false in "isEmailMatched"
+        admin_email = admin_email.toString().toLowerCase();
         let isEmailMatched = ( admin_email == email )? true : false;
 
         // If Email is not found in the database then return Message "Invalid email"

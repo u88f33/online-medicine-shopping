@@ -1,0 +1,50 @@
+<%- include( "../partials/adminsidebar" ) -%>
+
+<div class="admin-container">
+
+    <div class="row p-5 pb-3">
+        <div class="col-12 d-flex">
+            <button class="btn btn-danger ms-auto fs-5">
+                Add Customer Record
+            </button>
+        </div>
+    </div>
+
+    <div class="row p-5 pb-3">
+        <div class="col-12 d-flex">
+            
+            <%# Showing Customer Records in a Table %>
+            <table class="table fs-7">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col" style="width:40%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Muhammad Ali</td>
+                    <td>03337654992</td>
+                    <td>ma345@gmail.com</td>
+                    <td>
+                        <a href="/admin/customers" class="btn btn-primary">See Full Details</a>
+                        <a href="/admin/customers" class="btn btn-danger">Edit</a>
+                        <a href="/admin/customers" class="btn btn-dark">Delete</a>
+                    </td>
+                </tr>
+
+            </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+</div>
+
+<%- include( "../partials/footer" ) -%>

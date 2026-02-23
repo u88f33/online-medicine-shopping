@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/bootstrap_css/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="styles/custom/custom.css" />
+    <link rel="stylesheet" href="/styles/bootstrap_css/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/custom/custom.css" />
     <title>Online Medicine Shopping</title>
 </head>
 <body>
@@ -12,24 +12,26 @@
 
 <!-- Fixed Sidebar -->
 <div class="position-fixed top-0 start-0 bg-dark text-white vh-100 p-3 width-20-percent">
-    <h4 class="text-left mb-5 ms-3">Admin Panel</h4>
+    <a href="/admin" class="text-decoration-none text-light">
+        <h4 class="text-left mb-5 ms-3">Admin Panel</h4>
+    </a>
 
     <ul class="nav nav-pills flex-column mt-5">
 
         <li class="nav-item mb-2">
-            <a href="/admin/managecustomers" class="nav-link text-white sidebar-link-hover">
+            <a href="/admin/customers" class="nav-link text-white sidebar-link-hover">
                 Manage Customers
             </a>
         </li>
 
         <li class="nav-item mb-2">
-            <a href="/managemedicines" class="nav-link text-white sidebar-link-hover">
+            <a href="/admin/medicines" class="nav-link text-white sidebar-link-hover">
                 Manage Medicines
             </a>
         </li>
 
         <li class="nav-item mb-2">
-            <a href="/managesuppliers" class="nav-link text-white sidebar-link-hover">
+            <a href="/admin/suppliers" class="nav-link text-white sidebar-link-hover">
                 Manage Suppliers
             </a>
         </li>

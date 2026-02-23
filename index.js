@@ -15,9 +15,12 @@ import loginPageRoute from "./src/routes/login.route.js";
 import registerPageRoute from "./src/routes/register.route.js";
 
 // Admin Routes
-import adminLoginRoute from "./src/routes/admin_login.route.js"
-import adminLogoutRoute from "./src/routes/admin_logout.route.js"
-import adminMainPageRoute from "./src/routes/admin.route.js"
+import adminLoginRoute from "./src/routes/admin_login.route.js";
+import adminLogoutRoute from "./src/routes/admin_logout.route.js";
+import adminMainPageRoute from "./src/routes/admin.route.js";
+import manageCustomersRoute from "./src/routes/manage_customers.route.js";
+import manageMedicinesRoute from "./src/routes/manage_medicines.route.js";
+import manageSuppliersRoute from "./src/routes/manage_suppliers.route.js";
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -70,6 +73,16 @@ whether an admin is logged in or not using cookies
 // import adminMainPageRoute from "./src/routes/admin.route.js"
 app.use( "/admin", ensureAdminLoggedIn, adminMainPageRoute );
 
+// import manageCustomersRoute from "./src/routes/manage_customers.route.js";
+app.use( "/admin/customers", ensureAdminLoggedIn, manageCustomersRoute );
+
+// import manageMedicinesRoute from "./src/routes/manage_medicines.route.js";
+app.use( "/admin/medicines", ensureAdminLoggedIn, manageMedicinesRoute );
+
+// import manageMedicinesRoute from "./src/routes/manage_suppliers.route.js";
+app.use( "/admin/suppliers", ensureAdminLoggedIn, manageSuppliersRoute );
+
+
 // If non-existing route is accessed by a user 
 app.use( ( req, res, next ) => {
     res
@@ -81,7 +94,7 @@ app.use( ( req, res, next ) => {
 } )
 
 // Define the port to listen on (from environment variables)
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 // Start the server and listen on the specified port
 app.listen(PORT, () => {
