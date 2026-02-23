@@ -1,0 +1,47 @@
+<%- include( "../partials/adminsidebar" ) -%>
+
+<div class="admin-container">
+
+    <div class="row p-5 pb-3">
+        <div class="col-12">
+
+        <div class="bg-dark p-5 text-light rounded rounded-5">
+            <div class="border-bottom border-bottom-light border-bottom-1 mb-4">
+                <p class="fs-3">
+                    <b class="text-warning">Customer Name: </b> <%= singleCustomerRecord.name %>
+                </p>                
+            </div>
+
+            <div class="border-bottom border-bottom-light mb-4">
+                <p class="fs-3">
+                    <b class="text-warning">Customer Email: </b> <%= singleCustomerRecord.email %>
+                </p>                
+            </div>
+
+            <div class="border-bottom border-bottom-light mb-4">
+                <p class="fs-3">
+                    <b class="text-warning">Customer Phone: </b> <%= singleCustomerRecord.phone %>
+                </p>                
+            </div>
+
+            <div class="border-bottom border-bottom-light mb-4">
+                <p class="fs-3">
+                    <b class="text-warning">Customer Address: </b> <%= singleCustomerRecord.address %>
+                </p>                
+            </div>
+
+            <div class="mt-5 d-flex">
+                <a href="/admin/customers" class="btn btn-warning ms-auto">Back</a>                
+            </div>
+
+            
+        </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<%- include( "../partials/footer" ) -%>

@@ -1,11 +1,13 @@
-const customerManagementByAdmin = ( req, res, next ) => {
+import Customer from "../models/Customers.model.js";
+
+const customerManagementByAdmin = async ( req, res, next ) => {
     try {
 
-        const array = [ 2, 3, 4, 5 ];
+        const getCustomersData = await Customer.find()
 
         res.render(
             "user/managecustomers",
-            { message: array }
+            { customersData: getCustomersData }
         );
 
     } catch ( error ) {

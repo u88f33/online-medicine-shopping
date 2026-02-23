@@ -3,7 +3,11 @@
 <div class="admin-container">
 
     <div class="row p-5 pb-3">
-        <div class="col-12 d-flex">
+        <div class="col-7 d-flex">
+            <h1 class="m-0">Customers Data</h1>
+        </div>
+
+        <div class="col-5 d-flex">
             <a href="/admin/addcustomer" class="btn btn-danger ms-auto fs-5">
                 Add Customer Record
             </a>
@@ -11,7 +15,7 @@
     </div>
 
     <div class="row p-5 pb-3">
-        <div class="col-12 d-flex">
+        <div class="col-12">
             
             <%# Showing Customer Records in a Table %>
             <table class="table fs-7">
@@ -26,17 +30,23 @@
             </thead>
             <tbody>
 
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Muhammad Ali</td>
-                    <td>03337654992</td>
-                    <td>ma345@gmail.com</td>
+                <% let number = 0; %>
+                <% customersData.forEach(customer => { %>
+                    <tr>
+                    <td><%= ++number %></td>
+                    <td><%= customer.name %></td>
+                    <td><%= customer.phone %></td>
+                    <td><%= customer.email %></td>
                     <td>
-                        <a href="/admin/customers" class="btn btn-primary">See Full Details</a>
+                        <%# See Customer details and Login %>
+                        <a href="/admin/seerecord/<%= customer._id %>" class="btn btn-primary">View Full Details</a>
+                        
                         <a href="/admin/customers" class="btn btn-danger">Edit</a>
-                        <a href="/admin/customers" class="btn btn-dark">Delete</a>
+                        <a href="/admin/deleterecord/<%= customer._id %>" class="btn btn-warning">Delete</a>
+                        <a href="/admin/customers" class="btn btn-dark">Login</a>
                     </td>
                 </tr>
+                <% }); %>
 
             </tbody>
             </table>

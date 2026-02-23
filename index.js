@@ -22,6 +22,9 @@ import manageCustomersRoute from "./src/routes/manage_customers.route.js";
 import manageMedicinesRoute from "./src/routes/manage_medicines.route.js";
 import manageSuppliersRoute from "./src/routes/manage_suppliers.route.js";
 import addCustomerRoute from "./src/routes/add_customer.route.js"
+import seeCustomerRecordRoute from "./src/routes/see_customer_record.route.js"
+import deleteCustomerRecordRoute from "./src/routes/delete_customer_record.route.js"
+
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -80,7 +83,11 @@ app.use( "/admin/medicines", ensureAdminLoggedIn, manageMedicinesRoute );
 app.use( "/admin/suppliers", ensureAdminLoggedIn, manageSuppliersRoute );
 // import addCustomerRoute from "./src/routes/add_customer.route.js"
 app.use( "/admin/addcustomer", ensureAdminLoggedIn, addCustomerRoute );
+// import seeCustomerRoute from "./src/routes/see_customer_record.route.js"
+app.use( "/admin/seerecord", ensureAdminLoggedIn, seeCustomerRecordRoute );
 
+// import seeCustomerRoute from "./src/routes/see_customer_record.route.js"
+app.use( "/admin/deleterecord", ensureAdminLoggedIn, deleteCustomerRecordRoute );
 
 // If non-existing route is accessed by a user 
 app.use( ( req, res, next ) => {
