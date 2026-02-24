@@ -2,11 +2,11 @@ const registerPageController = ( req, res, next ) => {
     try {
         
         res.render(
-            "auth/register"
+            "auth/register",
         )
 
     } catch( error ) {
-        console.log( `Error: ${ error }` );
+        console.log( `Error: ${ error.message }` )
     }
 }
 
