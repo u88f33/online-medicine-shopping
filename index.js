@@ -91,6 +91,8 @@ app.use( "/admin/updaterecord", ensureAdminLoggedIn, updateCustomerRecordRoute )
 // import seeCustomerRoute from "./src/routes/see_customer_record.route.js"
 app.use( "/admin/deleterecord", ensureAdminLoggedIn, deleteCustomerRecordRoute );
 
+
+
 // If non-existing route is accessed by a user 
 app.use( ( req, res, next ) => {
     res

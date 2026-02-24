@@ -4,45 +4,76 @@
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
             
-            <div class="rounded rounded-4 bg-dark p-5 mt-5 w-50 text-light">
+            <form 
+                action="/register"
+                method="POST"
+                class="bg-dark text-light rounded rounded-4 p-4 w-100">
 
-                <div class="w-100 text-left pb-5">
-                    <h1>Customer Registration</h1>
+                <div class="text-light pt-5 pb-5">
+                    <h1 class="fs-2">Register Your Account</h1>
                 </div>
 
-                <form action="/register">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
+                <div class="d-flex mb-3">
+                    <div class="mb-3 me-4 w-50">
+                        <label for="exampleInputName" class="form-label">Name</label>
+                        <input type="text" 
+                            class="form-control" 
+                            id="exampleInputName" 
+                            aria-describedby="nameHelp"
+                            placeholder="Write your name"
+                            min="2"
+                            max="50"
+                            name="customer_name">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div class="mb-3 w-50">
+                        <label for="exampleInputEmail" class="form-label">Email</label>
+                        <input type="email" 
+                            class="form-control" 
+                            placeholder="Write your Email"
+                            id="exampleInputEmail" 
+                            aria-describedby="emailHelp"
+                            name="customer_email">
+                    </div>
+                </div>
+
+
+                <div class="d-flex mb-3">
+                    <div class="mb-3 me-4 w-50">
+                        <label for="exampleInputPhone" class="form-label">Phone</label>
+                        <input type="text" 
+                            class="form-control"
+                            placeholder="Enter your Phone number"
+                            id="exampleInputPhone" 
+                            aria-describedby="phoneHelp"
+                            name="customer_phone">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Phone</label>
-                        <input type="tel" class="form-control" id="exampleInputPhone1" aria-describedby="emailHelp">
+                    <div class="mb-3 w-50">
+                        <label for="exampleInputPassword" class="form-label">Password</label>
+                        <input type="password"
+                            class="form-control" 
+                            id="exampleInputPassword"
+                            placeholder="Type Password"
+                            aria-describedby="passwordHelp"
+                            name="customer_password">
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="exampleInputPhone1" aria-describedby="emailHelp">
-                    </div>
+                <div class="mb-3">
+                    <label for="exampleInputAddress" class="form-label">Address</label>
+                    <input type="text" 
+                        class="form-control"
+                        placeholder="Enter your Address"
+                        id="exampleInputAddress"
+                        name="customer_address">
+                </div>
 
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    
-                    <div class="d-flex justify-content-right">
-                        <button type="submit" class="btn border-light text-light px-3 mt-4 ms-auto me-2 btn-hover">Register</button>
-                    </div>
-
-                </form>
-
-            </div>
+                <div class="d-flex mt-5">
+                    <a href="/login" class="btn btn-warning ms-auto me-2">Login</a>
+                    <button type="submit" class="btn btn-danger bg-danger">Submit</button>
+                </div>
+            </form>
 
         </div>
     </div>
