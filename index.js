@@ -25,7 +25,7 @@ import addCustomerRoute from "./src/routes/add_customer.route.js"
 import seeCustomerRecordRoute from "./src/routes/see_customer_record.route.js"
 import deleteCustomerRecordRoute from "./src/routes/delete_customer_record.route.js"
 import updateCustomerRecordRoute from "./src/routes/update_customer.route.js";
-
+import customerProfileroute from "./src/routes/profile.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -91,7 +91,12 @@ app.use( "/admin/updaterecord", ensureAdminLoggedIn, updateCustomerRecordRoute )
 // import seeCustomerRoute from "./src/routes/see_customer_record.route.js"
 app.use( "/admin/deleterecord", ensureAdminLoggedIn, deleteCustomerRecordRoute );
 
-
+/**
+ * Customer Profile Route can only be accessed when a User is logged in
+ * Second Parameter is a middleware which ensures that the user
+ * is logged in. If not then this middleware returns to the login page. 
+ */
+app.use( "/profile", customerProfileroute );
 
 // If non-existing route is accessed by a user 
 app.use( ( req, res, next ) => {

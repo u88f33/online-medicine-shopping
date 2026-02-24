@@ -11,14 +11,30 @@
                     <h1>Customer Login</h1>
                 </div>
 
-                <form action="">
+                <form action="/login" method="POST">
                     <div class="mb-4">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control btn-hover" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1" 
+                        class="form-label">
+                        Email address
+                        </label>
+                        
+                        <input 
+                            type="email" 
+                            class="form-control" 
+                            id="exampleInputEmail1" 
+                            aria-describedby="emailHelp"
+                            name="customer_email">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" 
+                        class="form-label">
+                            Password
+                        </label>
+                        <input 
+                            type="password" 
+                            class="form-control" 
+                            id="exampleInputPassword1"
+                            name="customer_password">
                     </div>
 
                     <div class="mb-3 forgot-password">
@@ -30,6 +46,16 @@
                     </div>
 
                 </form>
+
+
+                <%#-- If Email or Password does not matched, show message in box --%>
+                <% if ( errorMessage ) { %>
+                    <div class="alert alert-danger d-flex align-items-center mt-4" role="alert">
+                        <div>
+                            <strong>Login Failed:</strong> <%= errorMessage %>
+                        </div>
+                    </div>
+                <% } %>
 
             </div>
 

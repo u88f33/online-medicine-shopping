@@ -1,7 +1,9 @@
 import express from "express"
-import loginPageController from "../controllers/login.controller.js";
+import loginPageControllerGet from "../controllers/login_get.controller.js";
+import loginPageControllerPost from "../controllers/login_post.controller.js";
 const router = express.Router();
 
-router.get( "/", loginPageController );
+router.get( "/", loginPageControllerGet );
+router.post( "/", loginPageControllerPost );
 
 export default router;
