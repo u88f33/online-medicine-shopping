@@ -24,6 +24,7 @@ import manageSuppliersRoute from "./src/routes/manage_suppliers.route.js";
 import addCustomerRoute from "./src/routes/add_customer.route.js"
 import seeCustomerRecordRoute from "./src/routes/see_customer_record.route.js"
 import deleteCustomerRecordRoute from "./src/routes/delete_customer_record.route.js"
+import updateCustomerRecordRoute from "./src/routes/update_customer.route.js";
 
 
 // Importing Middlewares
@@ -85,7 +86,8 @@ app.use( "/admin/suppliers", ensureAdminLoggedIn, manageSuppliersRoute );
 app.use( "/admin/addcustomer", ensureAdminLoggedIn, addCustomerRoute );
 // import seeCustomerRoute from "./src/routes/see_customer_record.route.js"
 app.use( "/admin/seerecord", ensureAdminLoggedIn, seeCustomerRecordRoute );
-
+// import seeCustomerRoute from "./src/routes/see_customer_record.route.js"
+app.use( "/admin/updaterecord", ensureAdminLoggedIn, updateCustomerRecordRoute );
 // import seeCustomerRoute from "./src/routes/see_customer_record.route.js"
 app.use( "/admin/deleterecord", ensureAdminLoggedIn, deleteCustomerRecordRoute );
 
