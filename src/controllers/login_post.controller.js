@@ -25,6 +25,8 @@ const loginPageControllerPost = async ( req, res, next ) => {
         return res.render( "auth/login", { errorMessage: "Incorrect Password" } )
     }
 
+    res.cookie( "userName", findByEmail.name );
+
     /**
      * Set cookie after successful login by User
      * 
@@ -39,14 +41,7 @@ const loginPageControllerPost = async ( req, res, next ) => {
         maxAge: 1000 * 60 * 60 
     } );
 
-    console.log(
-        {
-            admin: req.cookies.adminEmail,
-            customer: req.cookies.userEmail
-        }
-    );
-
-   res.redirect('/profile');
+    res.redirect('/profile');
 }
 
 export default loginPageControllerPost;
