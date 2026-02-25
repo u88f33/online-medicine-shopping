@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/bootstrap_css/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="styles/custom/custom.css" />
+    <link rel="stylesheet" href="/styles/bootstrap_css/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/custom/custom.css" />
     <title>Online Medicine Shopping</title>
 </head>
 <body>
@@ -43,8 +43,17 @@
             <%= userName %>
         </button>
         <ul class="dropdown-menu bg-dark text-light border border-primary border-1 p-0 rounded-0">
-            <li><a class="dropdown-item bg-dark text-light pt-3 pb-3 btn-hover" href="#">Update Profile</a></li>
-            <li><a class="dropdown-item bg-dark text-light pt-3 pb-3 btn-hover" href="/profile/logout">Logout</a></li>
+            <li><a 
+              class="dropdown-item bg-dark text-light pt-3 pb-3 btn-hover" 
+              href="/profile/updateprofile">
+                Update Profile
+            </a></li>
+            <li>
+              <a class="dropdown-item bg-dark text-light pt-3 pb-3 btn-hover" 
+              href="/profile/logout">
+                Logout
+              </a>
+            </li>
         </ul>
         </div>
 

@@ -17,6 +17,7 @@ const customerSchema = new mongoose.Schema({
     phone: {
         type: String,
         required: [true, "Password is required"],
+        unique: true,
         minlength: 8,
     },
     address: {

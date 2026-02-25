@@ -28,7 +28,7 @@ import updateCustomerRecordRoute from "./src/routes/update_customer.route.js";
 import userProfileRoute from "./src/routes/profile.route.js"
 import userLogoutRoute from "./src/routes/logout.route.js"
 import userLoginByAdminRoute from "./src/routes/admin_login_user_account.route.js"
-
+import userProfileUpdateRoute from "./src/routes/update_by_user.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -102,7 +102,9 @@ app.use( "/admin/loginaccount", ensureAdminLoggedIn, userLoginByAdminRoute );
  * is logged in. If not then this middleware returns to the login page. 
  */
 app.use( "/profile", ensureUserLoggedIn, userProfileRoute );
-app.use( "/profile/logout", userLogoutRoute );
+app.use( "/profile/logout", ensureUserLoggedIn, userLogoutRoute );
+app.use( "/profile/updateprofile", ensureUserLoggedIn, userProfileUpdateRoute );
+
 
 // If non-existing route is accessed by a user 
 app.use( ( req, res, next ) => {
