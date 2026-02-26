@@ -29,6 +29,7 @@ import userProfileRoute from "./src/routes/profile.route.js"
 import userLogoutRoute from "./src/routes/logout.route.js"
 import userLoginByAdminRoute from "./src/routes/admin_login_user_account.route.js"
 import userProfileUpdateRoute from "./src/routes/update_by_user.route.js"
+import userForgotPasswordRoute from "./src/routes/forgot_password/forgot_password.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -96,6 +97,13 @@ app.use( "/admin/updaterecord", ensureAdminLoggedIn, updateCustomerRecordRoute )
 app.use( "/admin/deleterecord", ensureAdminLoggedIn, deleteCustomerRecordRoute );
 // import userLoginByAdminRoute from "./src/routes/admin_login_user_account.route.js"
 app.use( "/admin/loginaccount", ensureAdminLoggedIn, userLoginByAdminRoute );
+
+/*
+ * When a user forgot password and clicks on "Forgot Password"
+*/
+app.use( "/forgotpassword", userForgotPasswordRoute );
+
+
 /**
  * Customer Profile Route can only be accessed when a User is logged in
  * Second Parameter is a middleware which ensures that the user

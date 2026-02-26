@@ -28,6 +28,12 @@ const customerSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required"],
         minlength: 8
+    },
+    resetPasswordToken: {
+        type: String
+    },
+    resetPasswordExpires: {
+        type: Date
     }
 });
 
