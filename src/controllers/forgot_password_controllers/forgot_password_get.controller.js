@@ -1,5 +1,8 @@
 const userForgotPasswordGet = ( req, res, next ) => {
-    res.render( "layouts/forgotpassword" )
+    res.render( 
+        "auth/forgotpassword",
+        { errorMessage: "" }
+    )
 }
 
 export default userForgotPasswordGet;

@@ -7,13 +7,13 @@ const userLogoutController = ( req, res, next ) => {
         if ( userEmail && adminEmail ) {
             res.clearCookie( 'userName' );
             res.clearCookie('userEmail');
-            res.redirect("/admin/customers");
+            return res.redirect("/admin/customers");
         }
 
-        if ( userEmail ) {
+        if ( userEmail && !(adminEmail) ) {
             res.clearCookie( 'userName' );
             res.clearCookie('userEmail');
-            res.redirect( "/login" );
+            return res.redirect( "/login" );
         } else {
             res.send( "Cookie not found: <a href='/'>Go Back to Website</a>" );
         }
