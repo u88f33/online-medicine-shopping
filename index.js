@@ -31,6 +31,7 @@ import userLoginByAdminRoute from "./src/routes/admin_login_user_account.route.j
 import userProfileUpdateRoute from "./src/routes/update_by_user.route.js"
 import userForgotPasswordRoute from "./src/routes/forgot_password/forgot_password.route.js"
 import resetPasswordRoute from "./src/routes/forgot_password/reset_password.route.js"
+import addMedicineRoute from "./src/routes/medicines/add_medicine.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -87,7 +88,7 @@ app.use( "/admin/customers", ensureAdminLoggedIn, manageCustomersRoute );
 // import manageMedicinesRoute from "./src/routes/manage_medicines.route.js";
 app.use( "/admin/medicines", ensureAdminLoggedIn, manageMedicinesRoute );
 // import manageMedicinesRoute from "./src/routes/manage_suppliers.route.js";
-
+app.use( "/admin/addmedicine", ensureAdminLoggedIn, addMedicineRoute );
 
 
 app.use( "/admin/suppliers", ensureAdminLoggedIn, manageSuppliersRoute );

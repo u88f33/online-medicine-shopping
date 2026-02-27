@@ -1,0 +1,109 @@
+<%- include( "../partials/adminprofilesidebar" ) -%>
+
+<div class="admin-container">
+
+    <div class="row p-5 pb-3">
+        <div class="col-12 d-flex justify-content-center">
+
+        <form 
+            action="/admin/addmedicine"
+            method="POST"
+            class="bg-dark text-light rounded rounded-4 p-4 w-100"
+            enctype="multipart/form-data">
+
+            <div class="text-light pt-5 pb-5">
+                <h1 class="fs-2">Add New Medicine Record</h1>
+            </div>
+
+            <div class="d-flex">
+                <div class="mb-4 me-4 w-50">
+                    <label for="exampleInputName" class="form-label">Medicine Name</label>
+                    <input type="text" 
+                        class="form-control" 
+                        id="exampleInputName" 
+                        aria-describedby="nameHelp"
+                        placeholder="Enter Medicine name"
+                        min="2"
+                        max="50"
+                        name="medicine_name">
+                </div>
+
+                <div class="mb-4 me-4 w-50">
+                    <label for="exampleInputCategory" class="form-label">Medicine Category</label>
+                    <input type="text" 
+                        class="form-control" 
+                        id="exampleInputCategory" 
+                        aria-describedby="categoryHelp"
+                        placeholder="Write Category of Medicine"
+                        name="medicine_category">
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div class="mb-4 me-4 w-50">
+                    <label for="exampleInputPrice" class="form-label">Medicine Price</label>
+                    <input type="text" 
+                        class="form-control" 
+                        id="exampleInputPrice"
+                        aria-describedby="priceHelp"
+                        placeholder="Rs."
+                        name="medicine_price">
+                </div>
+
+                <div class="mb-4 me-4 w-50">
+                    <label for="exampleInputStock" class="form-label">Stock Quantity</label>
+                    <input type="text" 
+                        class="form-control" 
+                        id="exampleInputStock" 
+                        aria-describedby="stockHelp"
+                        placeholder="Enter Stock Quantity"
+                        name="medicine_stock">
+                </div>
+            </div>
+            
+            <div class="d-flex">
+                <div class="mb-4 me-4 w-50">
+                    <label for="exampleInputSupplier" class="form-label">Medicine Category</label>
+                    <select 
+                        class="form-control" 
+                        id="exampleInputSupplier" 
+                        name="medicine_supplier"
+                        required>
+                        
+                        <option value="">Select Supplier</option>
+                        <option value="tablet">Supplier 1</option>
+                        <option value="capsule">Supplier 2</option>
+                        <option value="capsule">Supplier 3</option>
+                    </select>
+                </div>
+
+
+                <div class="mb-4 me-4 w-50">
+                    <label for="exampleInputImage" class="form-label">Medicine Photo</label>
+                    <input type="file" 
+                        class="form-control" 
+                        id="exampleInputImage"
+                        aria-describedby="priceHelp"
+                        placeholder="Chose Image (if available)"
+                        name="medicine_image">
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="d-flex mt-5">
+                <a href="/admin/medicines" class="btn btn-warning ms-auto me-2">Go Back</a>
+                <button type="submit" class="btn btn-danger bg-danger">Submit</button>
+            </div>
+        </form>
+
+        </div>
+    </div>
+
+
+</div>
+
+<%- include( "../partials/footer" ) -%>
