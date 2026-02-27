@@ -1,7 +1,7 @@
 import express from "express"
 import CustomerData from "../../models/Customers.model.js";
-// import resetPasswordControllerPost from
-// "../../controllers/reset_password_post.controller.js"
+import resetPasswordControllerPost from
+"../../controllers/forgot_password_controllers/reset_password_post.controller.js"
 
 const router = express.Router();
 
@@ -15,7 +15,13 @@ router.get( '/:token', async (req, res, next) => {
     return res.send('Password reset token is invalid or has expired.');
   }
   
-  res.render('auth/resetpassword', { token: req.params.token });
+  res.render('auth/resetpassword', {
+    token: req.params.token,
+    errorMessage: ""
+  });
 });
+
+router.post( "/:token", resetPasswordControllerPost )
+
 
 export default router;

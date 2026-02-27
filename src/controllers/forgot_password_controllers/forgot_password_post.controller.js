@@ -41,7 +41,10 @@ const userForgotPasswordPost = async ( req, res, next ) => {
         });
 
         if ( info ) {
-            res.send('<b>Check your email for the reset link.</b>');
+            res.send(
+                `<b>Check your email for the reset link. </b>
+                <a href="/">Go Back to Website</a>`
+            );
         }
 
     } catch ( error ) {
