@@ -1,4 +1,4 @@
-// src/models/Admin.js
+// src/models/Admin.model.js
 import mongoose from "mongoose";
 
 const adminSchema = new mongoose.Schema({

@@ -87,6 +87,9 @@ app.use( "/admin/customers", ensureAdminLoggedIn, manageCustomersRoute );
 // import manageMedicinesRoute from "./src/routes/manage_medicines.route.js";
 app.use( "/admin/medicines", ensureAdminLoggedIn, manageMedicinesRoute );
 // import manageMedicinesRoute from "./src/routes/manage_suppliers.route.js";
+
+
+
 app.use( "/admin/suppliers", ensureAdminLoggedIn, manageSuppliersRoute );
 // import addCustomerRoute from "./src/routes/add_customer.route.js"
 app.use( "/admin/addcustomer", ensureAdminLoggedIn, addCustomerRoute );

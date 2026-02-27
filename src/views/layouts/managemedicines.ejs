@@ -3,19 +3,40 @@
 <div class="admin-container">
 
     <div class="row p-5 pb-3">
-
-        <div class="col-6">
-
-            <div class="card text-bg-danger">
-                <h5 class="card-header">Manage Medicines</h5>
-                <div class="card-body">
-                    <p class="card-text">You can Insert, Edit or Delete Medicines Records.</p>
-                    <a href="/admin/medicines" class="btn btn-danger border border-white">Manage Medicines</a>
-                </div>
-            </div>
-
+        <div class="col-7 d-flex">
+            <h1 class="m-0">Medicines Data</h1>
         </div>
 
+        <div class="col-5 d-flex">
+            <a href="/admin/addmedicine" class="btn btn-danger ms-auto fs-5">
+                Add New Medicine
+            </a>
+        </div>
+    </div>
+
+    <div class="row p-5 pb-3">
+        <div class="col-12">
+            
+            <%# Showing Customer Records in a Table %>
+            <table class="table fs-7">
+            <thead>
+                <tr style="border-bottom: 2px solid black;">
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Stock Quantity</th>
+                    <th scope="col">Supplier</th>
+                    <th scope="col" style="width:40%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                
+            </tbody>
+            </table>
+
+        </div>
     </div>
 
 
