@@ -43,10 +43,10 @@
                     <td><%= medicine.supplier_id.name %></td>
                     <td>
                         <%# See Customer details and Login %>
-                        <a href="#" class="btn btn-primary">View</a>
+                        <a href="/admin/medicine/view/<%= medicine._id %>" class="btn btn-primary">View</a>
                         
-                        <a href="#" class="btn btn-danger">Edit</a>
-                        <a href="#" class="btn btn-warning">Delete</a>
+                        <a href="/admin/medicine/update/<%= medicine._id %>" class="btn btn-danger">Edit</a>
+                        <a href="/admin/medicine/delete/<%= medicine._id %>" class="btn btn-warning">Delete</a>
                     </td>
                 </tr>
                 <% }); %>                

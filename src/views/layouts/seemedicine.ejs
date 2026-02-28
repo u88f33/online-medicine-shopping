@@ -1,0 +1,66 @@
+<%- include( "../partials/adminprofilesidebar" ) -%>
+
+<div class="admin-container">
+
+    <div class="row p-5 pb-3">
+        <div class="col-12">
+
+        <div class="bg-dark p-5 text-light rounded rounded-5">
+            <div class="border-bottom border-bottom-light border-bottom-1 mb-4">
+                <p class="fs-4">
+                    <b class="text-warning">Medicine Name: </b> <%= getMedicineDataFromDB.name %>
+                </p>                
+            </div>
+
+            <div class="border-bottom border-bottom-light mb-4">
+                <p class="fs-4">
+                    <b class="text-warning">Category: </b> <%= getMedicineDataFromDB.category %>
+                </p>                
+            </div>
+
+            <div class="border-bottom border-bottom-light mb-4">
+                <p class="fs-4">
+                    <b class="text-warning">Price: </b> <%= getMedicineDataFromDB.price %>
+                </p>                
+            </div>
+
+            <div class="border-bottom border-bottom-light mb-4">
+                <p class="fs-4">
+                    <b class="text-warning">Stock Quantity: </b> <%= getMedicineDataFromDB.stock_quantity %>
+                </p>                
+            </div>
+
+            <div class="border-bottom border-bottom-light mb-4">
+                <p class="fs-4">
+                    <b class="text-warning">Supplied By: </b> <%= getMedicineDataFromDB.supplier_id.name %>
+                </p>                
+            </div>
+
+            <div class="border-bottom border-bottom-light mb-4">
+                <p class="fs-4">
+                    <b class="text-warning">Supplier contact: </b> <%= getMedicineDataFromDB.supplier_id.contact_number %>
+                </p>                
+            </div>
+
+            <div class="border-bottom border-bottom-light mb-4">
+                <p class="fs-4">
+                    <b class="text-warning">Supplier Address: </b> <%= getMedicineDataFromDB.supplier_id.address %>
+                </p>                
+            </div>
+
+
+            <div class="mt-5 d-flex">
+                <a href="/admin/medicines" class="btn btn-warning ms-auto">Back</a>                
+            </div>
+
+            
+        </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<%- include( "../partials/footer" ) -%>
