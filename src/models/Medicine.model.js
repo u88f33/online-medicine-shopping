@@ -19,6 +19,10 @@ const medicineSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    image: {
+        type: String,
+        default: "no-image.jpg"
+    },
     supplier_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Supplier",
