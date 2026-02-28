@@ -6,13 +6,13 @@
         <div class="col-12 d-flex justify-content-center">
 
         <form 
-            action="/admin/medicine/add"
+            action="/admin/medicine/update/<%= getMedicinesRecordFromDB._id %>"
             method="POST"
             class="bg-dark text-light rounded rounded-4 p-4 w-100"
             enctype="multipart/form-data">
 
             <div class="text-light pt-5 pb-5">
-                <h1 class="fs-2">Add New Medicine Record</h1>
+                <h1 class="fs-2">Update Medicine Record</h1>
             </div>
 
             <div class="d-flex">
@@ -25,7 +25,8 @@
                         placeholder="Enter Medicine name"
                         min="2"
                         max="50"
-                        name="medicine_name">
+                        name="medicine_name"
+                        value="<%= getMedicinesRecordFromDB.name %>">
                 </div>
 
                 <div class="mb-4 me-4 w-50">
@@ -35,7 +36,8 @@
                         id="exampleInputCategory" 
                         aria-describedby="categoryHelp"
                         placeholder="Write Category of Medicine"
-                        name="medicine_category">
+                        name="medicine_category"
+                        value="<%= getMedicinesRecordFromDB.category %>">
                 </div>
             </div>
 
@@ -47,7 +49,8 @@
                         id="exampleInputPrice"
                         aria-describedby="priceHelp"
                         placeholder="Rs."
-                        name="medicine_price">
+                        name="medicine_price"
+                        value="<%= getMedicinesRecordFromDB.price %>">
                 </div>
 
                 <div class="mb-4 me-4 w-50">
@@ -57,7 +60,8 @@
                         id="exampleInputStock" 
                         aria-describedby="stockHelp"
                         placeholder="Enter Stock Quantity"
-                        name="medicine_stock">
+                        name="medicine_stock"
+                        value="<%= getMedicinesRecordFromDB.stock_quantity %>">
                 </div>
             </div>
             
@@ -85,7 +89,8 @@
                         id="exampleInputImage"
                         aria-describedby="priceHelp"
                         placeholder="Chose Image (if available)"
-                        name="medicine_image">
+                        name="medicine_image"
+                        value="<%= getMedicinesRecordFromDB.image %>">
                 </div>
 
 
