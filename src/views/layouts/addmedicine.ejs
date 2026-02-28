@@ -63,17 +63,17 @@
             
             <div class="d-flex">
                 <div class="mb-4 me-4 w-50">
-                    <label for="exampleInputSupplier" class="form-label">Medicine Category</label>
+                    <label for="exampleInputSupplier" class="form-label">Medicine Supplier</label>
                     <select 
                         class="form-control" 
                         id="exampleInputSupplier" 
                         name="medicine_supplier"
-                        required>
-                        
+                        required="true">
+
                         <option value="">Select Supplier</option>
-                        <option value="tablet">Supplier 1</option>
-                        <option value="capsule">Supplier 2</option>
-                        <option value="capsule">Supplier 3</option>
+                        <% getSuppliersData.forEach(supplier => { %>
+                            <option value="<%= supplier._id %>"><%= supplier.name %></option>
+                        <% }); %>
                     </select>
                 </div>
 

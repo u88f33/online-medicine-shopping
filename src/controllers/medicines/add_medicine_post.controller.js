@@ -1,7 +1,7 @@
 import Medicines from "../../models/Medicine.model.js";
 
 const addMedicineByAdminPost = async ( req, res, next ) => {
-    
+
     const medicineDetails = {
         name: req.body.medicine_name,
         category: req.body.medicine_category,

@@ -8,7 +8,7 @@
         </div>
 
         <div class="col-5 d-flex">
-            <a href="/admin/addmedicine" class="btn btn-danger ms-auto fs-5">
+            <a href="/admin/addsupplier" class="btn btn-danger ms-auto fs-5">
                 Add New Supplier
             </a>
         </div>
@@ -30,6 +30,22 @@
             </thead>
             <tbody>
 
+                <% let number = 0; %>
+                <% suppliersData.forEach(supplier => { %>
+                    <tr style="border-bottom: 1px solid grey;" class="align-middle" >
+                    <td><%= ++number %></td>
+                    <td><%= supplier.name %></td>
+                    <td><%= supplier.contact_number %></td>
+                    <td><%= supplier.address %></td>
+                    <td>
+                        <%# See Customer details and Login %>
+                        <a href="#" class="btn btn-primary">View Full Details</a>
+                        
+                        <a href="#" class="btn btn-danger">Edit</a>
+                        <a href="#" class="btn btn-warning">Delete</a>
+                    </td>
+                </tr>
+                <% }); %>
                 
             </tbody>
             </table>

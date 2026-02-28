@@ -24,7 +24,7 @@ import manageSuppliersRoute from "./src/routes/manage_suppliers.route.js";
 import addCustomerRoute from "./src/routes/add_customer.route.js"
 import seeCustomerRecordRoute from "./src/routes/see_customer_record.route.js"
 import deleteCustomerRecordRoute from "./src/routes/delete_customer_record.route.js"
-import updateCustomerRecordRoute from "./src/routes/update_customer.route.js";
+import updateCustomerRecordRoute from "./src/routes/update_customer_record.route.js";
 import userProfileRoute from "./src/routes/profile.route.js"
 import userLogoutRoute from "./src/routes/logout.route.js"
 import userLoginByAdminRoute from "./src/routes/admin_login_user_account.route.js"
@@ -32,6 +32,7 @@ import userProfileUpdateRoute from "./src/routes/update_by_user.route.js"
 import userForgotPasswordRoute from "./src/routes/forgot_password/forgot_password.route.js"
 import resetPasswordRoute from "./src/routes/forgot_password/reset_password.route.js"
 import addMedicineRoute from "./src/routes/medicines/add_medicine.route.js"
+import addSupplierRoute from "./src/routes/suppliers/add_supplier.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -92,7 +93,9 @@ app.use( "/admin/addmedicine", ensureAdminLoggedIn, addMedicineRoute );
 
 
 app.use( "/admin/suppliers", ensureAdminLoggedIn, manageSuppliersRoute );
-// import addCustomerRoute from "./src/routes/add_customer.route.js"
+// import addSupplierRoute from "./src/routes/add_supplier.route.js"
+app.use( "/admin/addsupplier", ensureAdminLoggedIn, addSupplierRoute);
+
 
 
 app.use( "/admin/addcustomer", ensureAdminLoggedIn, addCustomerRoute );

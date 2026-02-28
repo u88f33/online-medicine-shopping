@@ -31,4 +31,7 @@ a.sidebar-logout-hover:hover {
     margin-left: 20% !important;
 }
 
-
+table, th, td {
+    border: 1px solid grey !important;
+    text-align: center !important;
+}

@@ -24,15 +24,33 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Price (Rs)</th>
                     <th scope="col">Stock Quantity</th>
                     <th scope="col">Supplier</th>
-                    <th scope="col" style="width:40%;">Actions</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
 
-                
+                <% let number = 0; %>
+                <% getMedicinesData.forEach(medicine => { %>
+                    <tr style="border-bottom: 1px solid grey;" class="align-middle" >
+                    <td><%= ++number %></td>
+                    <td><%= medicine.name %></td>
+                    <td><%= medicine.category %></td>
+                    <td ><%= medicine.price %></td>
+                    <td><%= medicine.stock_quantity %></td>
+                    <td><%= medicine.supplier_id.name %></td>
+                    <td>
+                        <%# See Customer details and Login %>
+                        <a href="#" class="btn btn-primary">View</a>
+                        
+                        <a href="#" class="btn btn-danger">Edit</a>
+                        <a href="#" class="btn btn-warning">Delete</a>
+                    </td>
+                </tr>
+                <% }); %>                
+
             </tbody>
             </table>
 

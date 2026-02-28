@@ -1,8 +1,13 @@
-const supplierManagementByAdmin = ( req, res, next ) => {
+import Supplier from "../models/Supplier.model.js";
+
+const supplierManagementByAdmin = async ( req, res, next ) => {
     try {
 
+        const suppliersData = await Supplier.find();
+
         res.render(
-            "layouts/managesuppliers"
+            "layouts/managesuppliers",
+            { suppliersData }
         )
 
     } catch( error ) {
