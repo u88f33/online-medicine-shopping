@@ -42,6 +42,7 @@ import addSupplierRoute from "./src/routes/suppliers/add_supplier.route.js"
 import seeCartRoute from "./src/routes/cart/see.route.js"
 import addToCartRoute from "./src/routes/cart/add.route.js"
 import confirmOrderRoute from "./src/routes/order/order.route.js"
+import OrderMgmtByAdminRoute from "./src/routes/order/ordermgmt.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -118,8 +119,6 @@ app.use( "/admin/suppliers", ensureAdminLoggedIn, manageSuppliersRoute );
 // import addSupplierRoute from "./src/routes/add_supplier.route.js"
 app.use( "/admin/addsupplier", ensureAdminLoggedIn, addSupplierRoute);
 
-
-
 app.use( "/admin/addcustomer", ensureAdminLoggedIn, addCustomerRoute );
 // import seeCustomerRoute from "./src/routes/see_customer_record.route.js"
 app.use( "/admin/seerecord", ensureAdminLoggedIn, seeCustomerRecordRoute );
@@ -129,6 +128,8 @@ app.use( "/admin/updaterecord", ensureAdminLoggedIn, updateCustomerRecordRoute )
 app.use( "/admin/deleterecord", ensureAdminLoggedIn, deleteCustomerRecordRoute );
 // import userLoginByAdminRoute from "./src/routes/admin_login_user_account.route.js"
 app.use( "/admin/loginaccount", ensureAdminLoggedIn, userLoginByAdminRoute );
+
+app.use( "/admin/orders", ensureAdminLoggedIn, OrderMgmtByAdminRoute )
 
 /*
  * When a user forgot password and clicks on "Forgot Password"
