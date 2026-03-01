@@ -12,11 +12,11 @@ const medicineSchema = new mongoose.Schema({
         required: [true, "Category is required"]
     },
     price: {
-        type: String,
+        type: Number,
         required: [true, "Price is required"]
     },
     stock_quantity: {
-        type: String,
+        type: Number,
         required: true
     },
     image: {

@@ -6,7 +6,7 @@
             <% getMedicinesData.forEach(medicineData => { %>
                 
                 <%# Card %>
-                <div class="card me-2 mb-3 w-100" style="box-shadow: 3px 3px 10px #444; border: 1px solid #999">
+                <div class="card me-2 mb-3 w-100 border border-1 border-danger" style="box-shadow: 3px 3px 10px #444; border: 1px solid #999">
 
                     <div class="card-header p-3 w-100">
                         <img 
@@ -16,24 +16,36 @@
                     </div>
 
                     <div class="card-body text-dark">
-                        <h3 class=""><%= medicineData.name %></h3>
-                        <p class=""><%= medicineData.category %></p>
+                        <h3 class="text-danger"><%= medicineData.name %></h3>
+                        <p class="fs-6"><%= medicineData.category %></p>
                         <div class="d-flex">
-                            <button class="btn btn-light border border-2 border-dark w-25 pt-0 pb-0">
+                            <button 
+                                class="btn btn-light border border-2 border-danger text-danger w-25 pt-0 pb-0"
+                                onclick="decreaseQty('<%= medicineData._id %>')">
                                 <span style="font-size: 40px;">-</span>
                             </button>
+
                             <input
-                                class="w-50 rounded ms-2 me-2 text-dark text-center fs-3 w-100 border border-2 border-dark bg-light"
+                                class="w-50 rounded ms-2 me-2 text-danger text-center fs-3 w-100 border border-2 border-danger bg-light"
                                 type="text"
-                                id="medicine_qty"
-                                value="2">
-                            <button class="btn btn-light border border-2 border-dark w-25 pt-0 pb-0">
+                                value="1"
+                                min="1"
+                                id="qty-<%= medicineData._id %>"
+                            >
+
+                            <button class="btn btn-light border border-2 border-danger text-danger w-25 pt-0 pb-0"
+                            onclick="increaseQty('<%= medicineData._id %>')">
                                 <span style="font-size: 40px;">+</span>
                             </button>
                         </div>
 
                         <div class="w-100 mt-2">
-                            <button class="btn btn-light p-3 fs-4 text-dark w-100 border border-2 border-dark">Add to Cart</button>
+                            <button 
+                                class="btn btn-light p-3 fs-4 text-dark w-100 border border-2 border-dark"
+                            onclick="addToCart('<%= medicineData._id %>')">
+                                
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
 
@@ -45,5 +57,32 @@
 
     </div>
 </div>
+
+<script>
+    function increaseQty(medicineId) {
+        const input = document.getElementById('qty-' + medicineId);
+        input.value = parseInt(input.value) + 1;
+    }
+
+    function decreaseQty(medicineId) {
+        const input = document.getElementById('qty-' + medicineId);
+
+        if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+        }
+    }
+
+    function addToCart(medicineId) {
+        const qty = parseInt(document.getElementById('qty-' + medicineId).value);
+
+        fetch('/cart/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ medicineId, quantity: qty })
+        })
+        .then(res => res.json())
+        .then(data => alert(data.message));
+    }
+</script>
 
 <%- include( "../partials/footer" ) -%>
