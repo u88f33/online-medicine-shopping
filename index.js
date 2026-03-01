@@ -8,7 +8,7 @@ import connectDB from "./src/config/database.js";
 
 // Importing Routes
 // Home Page Routes
-import hompPageRoute from "./src/routes/home_page.route.js";
+import hompPageRoute from "./src/routes/home/home_page.route.js";
 
 // Customer Routes
 import loginPageRoute from "./src/routes/login.route.js";

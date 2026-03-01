@@ -14,7 +14,7 @@ const addMedicineByAdminPost = async ( req, res, next ) => {
     const newMedicineInMongoDatabase = new Medicines( medicineDetails );
     const newlyAddedMedicine = await newMedicineInMongoDatabase.save();
     console.log( newlyAddedMedicine );
-    res.redirect( "/admin/addmedicine" );
+    res.redirect( "/admin/medicine/add" );
 }
 
 export default addMedicineByAdminPost;

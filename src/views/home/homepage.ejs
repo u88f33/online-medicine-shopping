@@ -1,10 +1,48 @@
 <%- include( "../partials/header" ) -%>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="mt-5">Home Page</h1>
-        </div>
+<div class="homepage-container">
+    <div class="homepage-row">
+
+            <% getMedicinesData.forEach(medicineData => { %>
+                
+                <%# Card %>
+                <div class="card me-2 mb-3 w-100" style="box-shadow: 3px 3px 10px #444; border: 1px solid #999">
+
+                    <div class="card-header p-3 w-100">
+                        <img 
+                            src="./uploads/<%= medicineData.image %>" 
+                            alt="No image"
+                            class="w-100 rounded rounded-2">
+                    </div>
+
+                    <div class="card-body text-dark">
+                        <h3 class=""><%= medicineData.name %></h3>
+                        <p class=""><%= medicineData.category %></p>
+                        <div class="d-flex">
+                            <button class="btn btn-light border border-2 border-dark w-25 pt-0 pb-0">
+                                <span style="font-size: 40px;">-</span>
+                            </button>
+                            <input
+                                class="w-50 rounded ms-2 me-2 text-dark text-center fs-3 w-100 border border-2 border-dark bg-light"
+                                type="text"
+                                id="medicine_qty"
+                                value="2">
+                            <button class="btn btn-light border border-2 border-dark w-25 pt-0 pb-0">
+                                <span style="font-size: 40px;">+</span>
+                            </button>
+                        </div>
+
+                        <div class="w-100 mt-2">
+                            <button class="btn btn-light p-3 fs-4 text-dark w-100 border border-2 border-dark">Add to Cart</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            <% }); %>
+
+
     </div>
 </div>
 
