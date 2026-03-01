@@ -1,4 +1,4 @@
-*************************** Online Medicine Shopping System ************************
+------------------------------ Online Medicine Shopping System ---------------------
 
 Final Year Project Submission
 Student Name: Muhammad Umar
