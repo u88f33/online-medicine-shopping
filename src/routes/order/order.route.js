@@ -1,5 +1,5 @@
 import express from "express";
-import Cart from "../../models/Cart.model.js";
+import Order from "../../models/Order.model.js";
 import Medicine from "../../models/Medicine.model.js";
 import Customer from "../../models/Customers.model.js";
 import ensureUserLoggedIn from "../../middlewares/ensure_user_logged_in.middleware.js";
@@ -10,16 +10,33 @@ router.post("/", async (req, res, next) => {
 
     
         const { medicineId, quantity } = req.body;
-        const medicine = await Medicine.findById(medicineId)
+        // Fetching the Medicine Data From the database
+        const medicine = await Medicine.findById(medicineId);
 
+        // If User is logged in, his or her email is stored in req.cookies.userEmail
+        const userEmail = req.cookies.userEmail;
 
-        console.log( medicine );
+        // Fetching customer data from database
+        const customer = await Customer.findOne( { email: userEmail } );
+
+        const orderData = {
+            customerId: customer._id,
+            customerName: customer.name,
+            medicineId: medicine._id,
+            quantity: quantity
+        };
+
+        if (!req.session.cart) {
+            req.session.cart = [];
+        }
+
+        req.session.cart.push(orderData);
+        console.log( "SID : ", req.sessionID );
 
     // try {
 
     //     const userEmail = req.cookies.userEmail;
 
-    //     // const customer = await Customer.find( { email: userEmail } );
         
         
     //     if (!medicine) return res.status(404).json({ message: "Medicine not found" });

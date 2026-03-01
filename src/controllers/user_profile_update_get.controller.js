@@ -5,6 +5,7 @@ const userProfileUpdateControllerGet = async ( req, res, next ) => {
     const getRecordValuesinUpdateForm = 
     await CustomersData.findOne( { name: req.cookies.userName } );
 
+
     res.render(
         "user/profileupdate", 
         {

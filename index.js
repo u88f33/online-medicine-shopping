@@ -2,6 +2,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import session from "express-session";
+
+
 
 // Importing "connectDB()" to connect to MongoDB
 import connectDB from "./src/config/database.js";
@@ -36,7 +39,7 @@ import seeMedicineRoute from "./src/routes/medicines/see_medicine.route.js"
 import deleteMedicineRoute from "./src/routes/medicines/delete_medicine.route.js"
 import updateMedicineRoute from "./src/routes/medicines/update_medicine.route.js"
 import addSupplierRoute from "./src/routes/suppliers/add_supplier.route.js"
-import cartRoute from "./src/routes/cart/cart.route.js"
+import orderRoute from "./src/routes/order/order.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -54,6 +57,16 @@ connectDB();
 const app = express();
 app.set( "view engine", "ejs" );
 app.set( "views", "./src/views" );
+
+// Session
+app.use(
+  session({
+    secret: "onlineMedicineShopping",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false } // true only if using HTTPS
+  })
+);
 
 // Cookies
 app.use( cookieParser() );
@@ -130,7 +143,7 @@ app.use( "/profile/logout", ensureUserLoggedIn, userLogoutRoute );
 app.use( "/profile/updateprofile", ensureUserLoggedIn, userProfileUpdateRoute );
 
 
-app.use( "/cart/add", ensureUserLoggedIn, cartRoute );
+app.use( "/cart/add", ensureUserLoggedIn, orderRoute );
 
 // If non-existing route is accessed by a user 
 app.use( ( req, res, next ) => {
