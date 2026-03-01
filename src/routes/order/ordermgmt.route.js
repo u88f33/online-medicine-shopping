@@ -5,8 +5,6 @@ const router = express.Router();
 router.get( "/", async ( req, res, next ) => {
     const getCustomerOrders = await OrderModel.find();
 
-    console.log( getCustomerOrders );
-
     res.render(
         "user/manageorders",
         { getCustomerOrders }
