@@ -42,8 +42,7 @@
                         <div class="w-100 mt-2">
                             <button 
                                 class="btn btn-light p-3 fs-4 text-dark w-100 border border-2 border-dark"
-                            onclick="addToCart('<%= medicineData._id %>')">
-                                
+                            onclick="(window.location.pathname.includes('/profile')? addToCart(medicineData._id) : window.location.replace('/login') ) ">
                                 Add to Cart
                             </button>
                         </div>
