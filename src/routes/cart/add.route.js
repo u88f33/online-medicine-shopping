@@ -23,20 +23,27 @@ router.post("/", async (req, res, next) => {
 
         const orderData = {
             customerId: customer._id,
+            medicineId: medicine._id,
             customerPhone: customer.phone,
             customerEmail: customer.email,
             customerName: customer.name,
             medicineName: medicine.name,
             medicinePrice: medicine.price,
-            quantity: quantity
         };
+
+        if ( quantity < medicine.stock_quantity ) {
+            orderData.quantity = quantity;
+        } else {
+            orderData.quantity = medicine.stock_quantity;
+        }
 
         if (!req.session.cart) {
             req.session.cart = [];
         }
 
+        
+
         req.session.cart.push(orderData);
-        console.log( req.session.cart );
         res.redirect( "/profile" );
 
 

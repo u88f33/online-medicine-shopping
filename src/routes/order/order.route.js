@@ -1,40 +1,50 @@
-// import express from "express";
-// import Order from "../../models/Order.model.js";
-// import Medicine from "../../models/Medicine.model.js";
-// import Customer from "../../models/Customers.model.js";
-// import ensureUserLoggedIn from "../../middlewares/ensure_user_logged_in.middleware.js";
+import express from "express"
+import Medicines from "../../models/Medicine.model.js";
+import OrderModel from "../../models/Order.model.js";
+const router = express.Router();
 
-// const router = express.Router();
-
-// router.post("/", async (req, res, next) => {
-
+router.post( "/", async ( req, res, next ) => {
     
-//         const { medicineId, quantity } = req.body;
-//         // Fetching the Medicine Data From the database
-//         const medicine = await Medicine.findById(medicineId);
+    try {
 
-//         // If User is logged in, his or her email is stored in req.cookies.userEmail
-//         const userEmail = req.cookies.userEmail;
-
-//         // Fetching customer data from database
-//         const customer = await Customer.findOne( { email: userEmail } );
-
-//         const orderData = {
-//             customerId: customer._id,
-//             customerName: customer.name,
-//             medicineId: medicine._id,
-//             quantity: quantity
-//         };
-
-//         if (!req.session.cart) {
-//             req.session.cart = [];
-//         }
-
-//         req.session.cart.push(orderData);
-//         console.log( req.session.cart );
-//         res.redirect( "/profile" );
+        if ( req.body.order == "Order Confirmed" ) {
+            const cart = req.session.cart;
+            
+                let orders = [];
+                cart.forEach(async cartItem => {
+                    const getMedicineData = await Medicines.findById( cartItem.medicineId );
 
 
-// });
+                    if (!getMedicineData) {
+                        return res.status(404).send(`Medicine not found: ${item.medicineId}`);
+                    }
 
-// export default router;
+                    if ( cartItem.quantity < getMedicineData.stock_quantity ) {
+                        getMedicineData.stock_quantity -= cartItem.quantity;
+                    }
+                    
+
+                    await getMedicineData.save();
+
+                });
+                
+                await OrderModel.insertOne( { order: cart } );
+
+                req.session.cart = [];
+
+
+                res.send( "Order Confirmed <a href='/profile'>Go Back</a>" );
+
+
+
+        } else {
+            return res.redirect( "/cart/see" )
+        }
+
+    } catch ( error ) {
+        res.send( "Error: " + error );
+    }
+
+} )
+
+export default router;

@@ -41,6 +41,7 @@ import updateMedicineRoute from "./src/routes/medicines/update_medicine.route.js
 import addSupplierRoute from "./src/routes/suppliers/add_supplier.route.js"
 import seeCartRoute from "./src/routes/cart/see.route.js"
 import addToCartRoute from "./src/routes/cart/add.route.js"
+import confirmOrderRoute from "./src/routes/order/order.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -147,6 +148,8 @@ app.use( "/profile/updateprofile", ensureUserLoggedIn, userProfileUpdateRoute );
 
 app.use( "/cart/add", ensureUserLoggedIn, addToCartRoute );
 app.use( "/cart/see", ensureUserLoggedIn, seeCartRoute );
+app.use( "/confirmorder", ensureUserLoggedIn, confirmOrderRoute );
+
 
 // If non-existing route is accessed by a user 
 app.use( ( req, res, next ) => {
