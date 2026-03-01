@@ -1,0 +1,53 @@
+<%- include( "../partials/userprofileheader" ) -%>
+
+<div class="container">
+    <div class="row p-5">
+
+        <% let i = 0; %>
+        <div class="d-flex justify-content-between align-items-center mb-4 mt-3">
+
+            <% let totalItems = 0 %>
+            <% 
+                for (let index = 0; index < cartItems.length; index++) {
+                    totalItems += cartItems[index].quantity;
+                } 
+            %>
+            <h1 class="mb-0 ps-0">Total Items: <%= totalItems %></h1>
+
+            <% let priceSum = 0 %>
+            <% 
+                for (let index = 0; index < cartItems.length; index++) {
+                    priceSum += cartItems[index].medicinePrice;
+                } 
+            %>
+
+            <a href="#Confirm-Order" class="btn btn-dark">Confirm Order ( Rs: <%= priceSum %> )</a>
+        </div>
+
+        <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Medicine Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total Items</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% cartItems.forEach(item => { %>
+                <tr>
+                    <td><%= ++i %></td>
+                    <td><%= item.medicineName %></td>
+                    <td>Rs. <%= item.medicinePrice %></td>
+                    <td><%= item.quantity %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+        </table>
+
+
+
+    </div>
+</div>
+
+<%- include( "../partials/footer" ) -%>

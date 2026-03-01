@@ -39,7 +39,8 @@ import seeMedicineRoute from "./src/routes/medicines/see_medicine.route.js"
 import deleteMedicineRoute from "./src/routes/medicines/delete_medicine.route.js"
 import updateMedicineRoute from "./src/routes/medicines/update_medicine.route.js"
 import addSupplierRoute from "./src/routes/suppliers/add_supplier.route.js"
-import orderRoute from "./src/routes/order/order.route.js"
+import seeCartRoute from "./src/routes/cart/see.route.js"
+import addToCartRoute from "./src/routes/cart/add.route.js"
 
 // Importing Middlewares
 import ensureAdminLoggedIn from "./src/middlewares/ensure_admin_logged_in.middleware.js";
@@ -57,6 +58,7 @@ connectDB();
 const app = express();
 app.set( "view engine", "ejs" );
 app.set( "views", "./src/views" );
+
 
 // Session
 app.use(
@@ -143,7 +145,8 @@ app.use( "/profile/logout", ensureUserLoggedIn, userLogoutRoute );
 app.use( "/profile/updateprofile", ensureUserLoggedIn, userProfileUpdateRoute );
 
 
-app.use( "/cart/add", ensureUserLoggedIn, orderRoute );
+app.use( "/cart/add", ensureUserLoggedIn, addToCartRoute );
+app.use( "/cart/see", ensureUserLoggedIn, seeCartRoute );
 
 // If non-existing route is accessed by a user 
 app.use( ( req, res, next ) => {

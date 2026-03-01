@@ -54,3 +54,15 @@ table, th, td {
   padding: 15px;
   /* width: 24%; */
 }
+
+.cart {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    text-align: center;
+}
