@@ -6,9 +6,9 @@
 
 # Important Notes
 
-Application works on: ```http://localhost:5000```
-Do not forget to restore the database before running the project.
-Make sure MongoDB service is running.
+Application works on: ```http://localhost:5000```  
+Do not forget to restore the database before running the project.  
+Make sure MongoDB service is running.  
 Ensure correct database name in .env file if used.
 
 
