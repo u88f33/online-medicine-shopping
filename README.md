@@ -23,11 +23,11 @@ The Online Medicine Shopping System is a web-based application developed using:
 - Bootstrap
 - EJS
 
-The system allows:
-Customers to browse and order medicines
+The system allows Customers to browse and order medicines
 Admin to manage customers, medicines, suppliers, and orders
 Suppliers to be linked with medicines for tracking
-------------------------------------------------------------------------------------------
+
+
 2. Before Running the Project:
 
 Please make sure the following software is installed on the system:
