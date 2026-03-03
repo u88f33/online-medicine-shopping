@@ -12,8 +12,9 @@ Do not forget to restore the database before running the project.
 Make sure MongoDB service is running.
 Ensure correct database name in .env file if used.
 
------------------------------------------------------------------------------------------
+---------------------------------------------------
 1. Project Overview
+---------------------------------------------------
 
 The Online Medicine Shopping System is a web-based application developed using:
 - Node.js
@@ -27,27 +28,31 @@ The system allows Customers to browse and order medicines
 Admin to manage customers, medicines, suppliers, and orders
 Suppliers to be linked with medicines for tracking
 
-
+-----------------------------------------------
 2. Before Running the Project:
--------------------------------------------------------------------------------------
+-----------------------------------------------
 Please make sure the following software is installed on the system:
 Node.js (v18+ recommended)
 MongoDB Server
 MongoDB Database Tools (for mongodump and mongorestore)
------------------------------------------------------------------------------------------
+
+---------------------------------------------------
 3. Installing Dependencies
+---------------------------------------------------
 
 The node_modules folder has been removed to reduce project size.
 After extracting the project:
 Open terminal inside the project folder and run command "npm install" in the terminal:
 This will install all required dependencies automatically from package.json.
 
--------------------------------------------------------------------------------------------
+-----------------------------------------------------
 4. Restoring the Database
+-----------------------------------------------------
 
 A MongoDB backup has been provided using mongodump.
 Step 1: Make Sure MongoDB Service is Running
 Start MongoDB service on your system.
+
 --------------------------------------------------------------------------------------------
 Step 2: Restore the Database
 
