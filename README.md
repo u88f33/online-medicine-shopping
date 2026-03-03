@@ -37,8 +37,8 @@ MongoDB Database Tools (for mongodump and mongorestore)
 ## 3. Installing Dependencies:
 The node_modules folder has been removed to reduce project size.
 After extracting the project:
-Open terminal inside the project folder and run command "npm install" in the terminal:
-This will install all required dependencies automatically from package.json.
+Open terminal inside the project folder and run command ```npm install``` in the terminal:
+This will install all required dependencies automatically from ```package.json```.
 
 
 ## 4. Restoring the Database
@@ -58,7 +58,7 @@ Medicines
 Suppliers
 Orders
 
-### If mongodump or mongorestore Is Not Installed
+## If mongodump or mongorestore Is Not Installed
 If the commands mongodump or mongorestore are not recognized, you need to install MongoDB Database Tools.
 
 Download Location:
