@@ -1,6 +1,5 @@
-# Online Medicine Shopping System 
+# VU FYP: Online Medicine Shopping System 
 
-# Final Year Project Submission
 **Student Name**:  Muhammad Umar  
 **Degree Program:** BS Computer Science
 
