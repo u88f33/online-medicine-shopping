@@ -1,13 +1,13 @@
------------------------------- Online Medicine Shopping System ---------------------
+#Online Medicine Shopping System 
 
 Final Year Project Submission
 Student Name: Muhammad Umar
 Degree Program: BS Computer Science
 
 
-Important Notes
+# Important Notes
 
-Application works on: http://localhost:5000
+Application works on: ```http://localhost:5000```
 Do not forget to restore the database before running the project.
 Make sure MongoDB service is running.
 Ensure correct database name in .env file if used.
