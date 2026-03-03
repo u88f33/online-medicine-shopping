@@ -29,7 +29,7 @@ Suppliers to be linked with medicines for tracking
 
 
 2. Before Running the Project:
-
+-------------------------------------------------------------------------------------
 Please make sure the following software is installed on the system:
 Node.js (v18+ recommended)
 MongoDB Server
