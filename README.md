@@ -1,8 +1,8 @@
 # Online Medicine Shopping System 
 
 # Final Year Project Submission
-### Student Name: ### Muhammad Umar
-### Degree Program: BS Computer Science
+** Student Name **:  Muhammad Umar
+** Degree Program: ** BS Computer Science
 
 
 # Important Notes
@@ -65,7 +65,7 @@ If the commands mongodump or mongorestore are not recognized, you need to instal
 
 Download Location:
 Official MongoDB Website:
-https://www.mongodb.com/try/download/database-tools
+[Download mongodump and mongorestore](https://www.mongodb.com/try/download/database-tools)
 
 Steps:
 Open the link above.
