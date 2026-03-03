@@ -7,6 +7,7 @@
 # Important Notes
 
 Application works on: ```http://localhost:5000```  
+Use ```npm install``` to restore ```node_modules```
 Do not forget to restore the database before running the project.  
 Make sure MongoDB service is running.  
 Ensure correct database name in .env file if used.
@@ -15,9 +16,9 @@ Ensure correct database name in .env file if used.
 # 1. Project Overview:
 
 The Online Medicine Shopping System is a web-based application developed using:
-- Node.js
+- [Node.js](https://nodejs.org/en/download)
 - Express.js
-- MongoDB
+- [MongoDB](https://www.mongodb.com/try/download/community)
 - Mongoose
 - Bootstrap
 - EJS
