@@ -13,7 +13,6 @@ Ensure correct database name in .env file if used.
 
 
 # 1. Project Overview:
----------------------------------------------------
 
 The Online Medicine Shopping System is a web-based application developed using:
 - Node.js
