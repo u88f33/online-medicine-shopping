@@ -1,4 +1,5 @@
 backup/
 node_modules/
+README.txt
 .json_collections/
 .env
