@@ -1,3 +1,7 @@
+# Admin credentials
+**Admin Email:** admin123@gmail.com
+**Admin password:** OMSadmin123
+
 # VU FYP: Online Medicine Shopping System 
 
 **Student Name**:  Muhammad Umar  
