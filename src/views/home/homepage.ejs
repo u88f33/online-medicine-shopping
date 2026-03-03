@@ -3,45 +3,55 @@
 <div class="homepage-container">
     <div class="homepage-row">
 
-            <% getMedicinesData.forEach(medicineData => { %>
+            <% getMedicinesData.docs.forEach(medicineData => { %>
                 
                 <%# Card %>
-                <div class="card me-2 mb-3 w-100 border border-1 border-danger" style="box-shadow: 3px 3px 10px #444; border: 1px solid #999">
+                <div class="card me-2 p-0 mb-3 w-100 border border-1 border-dark" style="box-shadow: 3px 3px 10px #444; border: 1px solid #999">
 
-                    <div class="card-header p-3 w-100">
+                    <div class="card-header p-0 w-100">
                         <img 
-                            src="./uploads/<%= medicineData.image %>" 
+                            src="/uploads/<%= medicineData.image %>" 
                             alt="No image"
-                            class="w-100 rounded rounded-2">
+                            class="w-100 rounded rounded-2 rounded-bottom-0"
+                            style="height: 270px !important; object-fit: cover;">
                     </div>
 
                     <div class="card-body text-dark">
-                        <h3 class="text-danger"><%= medicineData.name %></h3>
-                        <p class="fs-6"><%= medicineData.category %></p>
+                        <h3 class="text-dark fs-4"><%= medicineData.name %></h3>
+                        <div class="d-flex justify-content-between pt-2 pb-2">
+                            <p class="fs-6"><b><%= medicineData.category %></b></p>
+                            <p class="fs-6 bg-warning ps-3 pe-3 rounded rounded-5">
+                                <b>Rs. <span id="<%= medicineData._id %>-price" data-original-price="<%= medicineData.price %>">
+                                    <%= medicineData.price %>
+                                </span>
+                                </b>
+                            </p>                        </div>
                         <div class="d-flex">
                             <button 
-                                class="btn btn-light border border-2 border-danger text-danger w-25 pt-0 pb-0"
-                                onclick="decreaseQty('<%= medicineData._id %>')">
-                                <span style="font-size: 40px;">-</span>
+                                class="btn btn-warning text-dark w-25 d-flex justify-content-center align-items-center rounded rounded-5"
+                                style="height: 3rem !important" onclick="decreaseQty('<%= medicineData._id %>')">
+                                <span class="fs-1 pb-1">-</span>
                             </button>
 
                             <input
-                                class="w-50 rounded ms-2 me-2 text-danger text-center fs-3 w-100 border border-2 border-danger bg-light"
+                                class="d-flex justify-content-center align-items-center w-50 fs-2 rounded rounded-5 ms-2 me-2 text-dark text-center w-100 border border-2 border-dark bg-light"
                                 type="text"
+                                style="height: 3rem !important"
                                 value="1"
                                 min="1"
                                 id="qty-<%= medicineData._id %>"
+                                readonly="true"
                             >
 
-                            <button class="btn btn-light border border-2 border-danger text-danger w-25 pt-0 pb-0"
-                            onclick="increaseQty('<%= medicineData._id %>')">
-                                <span style="font-size: 40px;">+</span>
+                            <button class="d-flex justify-content-center align-items-center pt-0 pb-0 btn btn-warning text-dark w-25 rounded rounded-5"
+                            style="height: 3rem !important" onclick="increaseQty('<%= medicineData._id %>')">
+                                <span class="fs-2 pb-1">+</span>
                             </button>
                         </div>
 
                         <div class="w-100 mt-2">
                             <button 
-                                class="btn btn-light p-3 fs-4 text-dark w-100 border border-2 border-dark"
+                                class="btn btn-dark p-1 fs-4 text-light w-100 border border-2 border-dark rounded rounded-5"
                             onclick="(window.location.pathname.includes('/profile')? addToCart(medicineData._id) : window.location.replace('/login') ) ">
                                 Add to Cart
                             </button>
@@ -52,22 +62,63 @@
 
 
             <% }); %>
+    </div>
 
+    <div class="pagination-row">
+
+            <div class="mt-1 mb-3 p-5 w-100 d-flex justify-content-center">
+                <%# Move to previous Page %>
+                <% let currentPage = getMedicinesData.page; %>
+                <% let prevPage = currentPage || 1; %>
+                <% if ( getMedicinesData.hasPrevPage ) { %>
+                    <% prevPage--; %>
+                <% } %>
+                <a href="/?page=<%= prevPage %>" class="btn btn-dark me-2 fs-4 pb-2" >«</a>
+                <%# --------------------------------- %>
+
+                <% for ( let i = 1; i <= getMedicinesData.totalPages; i++ ) { %>
+                    <a href="/?page=<%= i %>" class="btn btn-warning me-2 fs-4" ><%= i %></a>
+                <% } %>
+
+                <%# Move to previous Page %>
+                <% let nextPage = currentPage || getMedicinesData.totalPages; %>
+                <% if ( getMedicinesData.hasNextPage ) { %>
+                    <% nextPage++; %>
+                <% } %>
+                <a href="/?page=<%= nextPage %>" class="btn btn-dark me-2 fs-4 pb-2" >»</a>
+                <%# --------------------------------- %>
+            </div>
 
     </div>
 </div>
 
 <script>
     function increaseQty(medicineId) {
-        const input = document.getElementById('qty-' + medicineId);
+        let priceAmount = document.getElementById( `${medicineId}-price` );
+        let input = document.getElementById('qty-' + medicineId);
+        
         input.value = parseInt(input.value) + 1;
+        let inputValue = input.value;
+        
+        let originalPrice = parseInt(priceAmount.dataset.originalPrice);
+        let itemQuantity = parseInt( inputValue );
+        let newPrice = originalPrice * itemQuantity;
+        priceAmount.innerText = newPrice;
     }
 
     function decreaseQty(medicineId) {
+        const priceAmount = document.getElementById( `${medicineId}-price` );
         const input = document.getElementById('qty-' + medicineId);
 
         if (parseInt(input.value) > 1) {
-        input.value = parseInt(input.value) - 1;
+            input.value = parseInt(input.value) - 1;
+
+            let inputValue = input.value;
+
+            let originalPrice = parseInt(priceAmount.dataset.originalPrice);
+            let itemQuantity = parseInt( inputValue );
+            let newPrice = originalPrice * itemQuantity;
+            priceAmount.innerText = newPrice;
         }
     }
 

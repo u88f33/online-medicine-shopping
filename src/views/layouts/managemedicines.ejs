@@ -41,12 +41,12 @@
                     <td ><%= medicine.price %></td>
                     <td><%= medicine.stock_quantity %></td>
                     <td><%= medicine.supplier_id.name %></td>
-                    <td>
+                    <td class="d-flex border border-1">
                         <%# See Customer details and Login %>
-                        <a href="/admin/medicine/view/<%= medicine._id %>" class="btn btn-primary">View</a>
+                        <a href="/admin/medicine/view/<%= medicine._id %>" style="box-shadow: 0.1px 0.1px 4px black;" class="btn btn-primary me-2">View</a>
                         
-                        <a href="/admin/medicine/update/<%= medicine._id %>" class="btn btn-danger">Edit</a>
-                        <a href="/admin/medicine/delete/<%= medicine._id %>" class="btn btn-warning">Delete</a>
+                        <a href="/admin/medicine/update/<%= medicine._id %>" style="box-shadow: 0.1px 0.1px 4px black;" class="btn btn-warning me-2">Edit</a>
+                        <a href="/admin/medicine/delete/<%= medicine._id %>" style="box-shadow: 0.1px 0.1px 4px black;" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 <% }); %>                

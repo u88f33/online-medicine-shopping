@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "69a5df364451363715a22521"
+  },
+  "name": "Muhammad Umar Khan",
+  "email": "u88f33@gmail.com",
+  "phone": "03080816222",
+  "address": "House# 104-C, Street# 18, G-2/2, Islamabad",
+  "password": "$2b$10$x.u3m3yivVW41JHTJJEVG.CjP8IGSai1eQd44UEOnremzRBkvz0Eq",
+  "__v": 0
+}]

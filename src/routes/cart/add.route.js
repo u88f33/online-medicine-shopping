@@ -28,13 +28,15 @@ router.post("/", async (req, res, next) => {
             customerEmail: customer.email,
             customerName: customer.name,
             medicineName: medicine.name,
-            medicinePrice: medicine.price,
+            medicinePrice: medicine.price
         };
 
         if ( quantity < medicine.stock_quantity ) {
             orderData.quantity = quantity;
+            orderData.medicinePrice = ( orderData.quantity * orderData.medicinePrice );
         } else {
             orderData.quantity = medicine.stock_quantity;
+            orderData.medicinePrice = ( orderData.stock_quantity * orderData.medicinePrice );
         }
 
         if (!req.session.cart) {
@@ -44,6 +46,7 @@ router.post("/", async (req, res, next) => {
         
 
         req.session.cart.push(orderData);
+        console.log( req.session.cart );
         res.redirect( "/profile" );
 
 

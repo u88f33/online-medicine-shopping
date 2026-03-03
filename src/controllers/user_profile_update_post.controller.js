@@ -23,7 +23,7 @@ const userProfileUpdateControllerPost = async ( req, res, next ) => {
         { returnDocument: "after" }
     );
     console.log( insertUpdatedRecordinDB );
-    res.redirect( "/profile" );
+    res.redirect( "/profile/logout" );
     
 }
 

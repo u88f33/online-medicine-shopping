@@ -21,6 +21,7 @@
                 } 
             %>
 
+            <a href="/cart/delete" class="d-inline-block ms-auto me-2 btn btn-danger">Delete Cart</a>
             <form action="/confirmorder" method="POST">
                 <input type="hidden" name="order" value="<%= (priceSum > 0)? "Order Confirmed" : ""  %>" />
                 <button type="submit" class="btn btn-dark">Confirm Order ( Rs: <%= priceSum %> )</a></button>

@@ -39,9 +39,6 @@ table, th, td {
 .homepage-container {
     width: 100%;
     padding: 2rem 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .homepage-row {
@@ -49,6 +46,7 @@ table, th, td {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
 }
+
 
 .card {
   padding: 15px;

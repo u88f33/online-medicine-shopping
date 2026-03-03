@@ -1,5 +1,6 @@
 // src/models/Medicine.model.js
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const medicineSchema = new mongoose.Schema({
     name: {
@@ -30,5 +31,6 @@ const medicineSchema = new mongoose.Schema({
     }
 });
 
+medicineSchema.plugin(mongoosePaginate);
 const Medicines = mongoose.model( "Medicine", medicineSchema );
 export default Medicines;

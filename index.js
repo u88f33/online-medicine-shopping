@@ -41,6 +41,7 @@ import updateMedicineRoute from "./src/routes/medicines/update_medicine.route.js
 import addSupplierRoute from "./src/routes/suppliers/add_supplier.route.js"
 import seeCartRoute from "./src/routes/cart/see.route.js"
 import addToCartRoute from "./src/routes/cart/add.route.js"
+import deleteCartRoute from "./src/routes/cart/delete.route.js"
 import confirmOrderRoute from "./src/routes/order/order.route.js"
 import OrderMgmtByAdminRoute from "./src/routes/order/ordermgmt.route.js"
 
@@ -76,7 +77,7 @@ app.use(
 app.use( cookieParser() );
 
 // Middleware for adding CSS and Javascript files in a project
-app.use( express.static( "public/" ) );
+app.use( express.static( "public" ) );
 
 // Middleware for extracting Form data in Request
 app.use( express.urlencoded( { extended: true } ) );
@@ -149,6 +150,7 @@ app.use( "/profile/updateprofile", ensureUserLoggedIn, userProfileUpdateRoute );
 
 app.use( "/cart/add", ensureUserLoggedIn, addToCartRoute );
 app.use( "/cart/see", ensureUserLoggedIn, seeCartRoute );
+app.use( "/cart/delete", ensureUserLoggedIn, deleteCartRoute );
 app.use( "/confirmorder", ensureUserLoggedIn, confirmOrderRoute );
 
 

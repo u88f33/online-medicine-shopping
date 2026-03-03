@@ -10,8 +10,6 @@ router.get( "/:id", async ( req, res, next ) => {
         .populate("supplier_id")
         .exec();
 
-        console.log( "Show in See Medcines" + getMedicineDataFromDB )
-
         res.render(
             "layouts/seemedicine",
             { getMedicineDataFromDB }

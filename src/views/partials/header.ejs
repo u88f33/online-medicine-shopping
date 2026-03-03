@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/bootstrap_css/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/styles/custom/custom.css" />
-    <title>Online Medicine Shopping</title>
+    <title>Novameds</title>
 </head>
-<body>
+<body class="d-flex flex-column vh-100">
 
 
 <!--
@@ -17,7 +17,7 @@
   <div class="container-fluid pt-2 pb-2">
     
     <!-- Brand (with left spacing) -->
-    <a class="navbar-brand ms-3" href="/">Online Medicine</a>
+    <a class="navbar-brand ms-3" href="/">Novameds</a>
 
     <!-- Toggle button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -27,13 +27,15 @@
     <div class="collapse navbar-collapse" id="navbarContent">
 
       <!-- Search Bar -->
-      <form class="d-flex mx-auto w-50">
+      <form action="/" method="GET" class="d-flex mx-auto w-50">
           <input 
-              class="form-control" 
+              class="form-control"
+              name="search"
               type="search" 
               placeholder="Search medicines..."
           >
-          <button class="btn border-light text-light ms-2 px-4 btn-hover" type="submit">
+          <button class="btn border-light text-light ms-2 px-4 btn-hover" type="submit"
+          onclick="e=>e.preventDefault()">
             Search
           </button>
       </form>

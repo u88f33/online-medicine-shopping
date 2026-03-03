@@ -27,10 +27,11 @@
     <div class="collapse navbar-collapse" id="navbarContent">
 
       <!-- Search Bar -->
-      <form class="d-flex mx-auto w-50">
+      <form action="/profile" method="GET" class="d-flex mx-auto w-50">
           <input 
               class="form-control" 
               type="search" 
+              name="search"
               placeholder="Search medicines..."
           >
           <button class="btn border-light text-light ms-2 px-4 btn-hover" type="submit">
@@ -58,7 +59,7 @@
         </div>
 
         <a href="/cart/see" class="btn btn-dark border border-2 border-light ms-2">
-          Cart
+          See Cart
         </a>
 
     </div>
