@@ -48,10 +48,8 @@ A MongoDB backup has been provided using mongodump.
 Step 1: Make Sure MongoDB Service is Running
 Start MongoDB service on your system.
 
----------------------------------------------------
-# Step 2: Restore the Database
--------------------------------------------------
 
+# Step 2: Restore the Database
 Navigate to the folder where the backup is located and run the command given below:
 
 ```mongorestore --db online_medicine_shopping dump/online_medicine_shopping```
@@ -73,27 +71,25 @@ Steps:
 Open the link above.
 Select your Operating System (Windows / macOS / Linux).
 Download MongoDB Database Tools.
+
 Extract the folder.
 Add the bin folder path to your system Environment Variables.
 After adding to environment variables, restart terminal and run:
-mongodump --version
+```mongodump --version```
 
 If version appears, installation is successful.
 
---------------------------------------------------------------------------------------------------
-
-6. Running the Application
+# 6. Running the Application
 
 After restoring database and installing dependencies:
 
 Run:
-npm start
+```npm start```
 or
-node index.js
+```node index.js```
 
 Then open browser:
-http://localhost:5000
---------------------------------------------------------------------------------------------------
+```http://localhost:5000```
 
 
 
