@@ -54,7 +54,7 @@ Start MongoDB service on your system.
 
 Navigate to the folder where the backup is located and run the command given below:
 
-```mongorestore --db online_medicine dump/online_medicine```
+```mongorestore --db online_medicine_shopping dump/online_medicine_shopping```
 
 This will restore the complete database including:
 Customers
